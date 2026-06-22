@@ -6,15 +6,13 @@
 <title>Filippo & Lucia | 4 settembre 2026</title>
 <meta name="description" content="Filippo & Lucia si sposano il 4 settembre 2026. Una storia in musica: cerimonia al Teatro Sociale di Como, festeggiamenti all'Hotel Asnigo di Cernobbio.">
 
-<!-- Open Graph / WhatsApp / Facebook -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="Filippo & Lucia | 4 settembre 2026">
 <meta property="og:description" content="Una storia in musica. Vi aspettiamo il 4 settembre 2026 a Como per festeggiare insieme a noi.">
 <meta property="og:image" content="https://lh3.googleusercontent.com/d/1_mdGTmsFO0-f3uUqESXEPbcFvBRk6UPa">
-<meta property="og:url" content="https://INSERISCI-DOMINIO-SITO.it/">
+<meta property="og:url" content="https://benvenutiallagofl.github.io/FilippoeLucia2026//">
 <meta property="og:locale" content="it_IT">
 
-<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Filippo & Lucia | 4 settembre 2026">
 <meta name="twitter:description" content="Una storia in musica. Vi aspettiamo il 4 settembre 2026 a Como per festeggiare insieme a noi.">
@@ -25,8 +23,8 @@
 <style>
 :root{
   --ivory:#F7F3EB;
-  --sage:#A8B5A2;
-  --forest:#485E4D;
+  --sage:#8DB87A;
+  --forest:#2D5A27;
   --gold:#C8A66A;
   --grey:#D7D7D2;
 }
@@ -35,6 +33,1070 @@ html{scroll-behavior:smooth;scroll-padding-top:70px}
 body{font-family:Lato,sans-serif;background:var(--ivory);color:#2b2b2b;line-height:1.7}
 h1,h2,h3{font-family:"Playfair Display",serif;color:var(--forest)}
 .container{width:min(1100px,90%);margin:auto}
+section{padding:90px 0}
+
+.navbar{
+  position:fixed;top:0;left:0;width:100%;z-index:100;
+  background:rgba(247,243,235,.96);backdrop-filter:blur(6px);
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+  transition:.25s}
+.navbar-inner{
+  width:min(1100px,90%);margin:auto;display:flex;align-items:center;justify-content:space-between;
+  height:64px}
+.navbar-brand{font-family:"Playfair Display",serif;font-weight:700;color:var(--forest);font-size:1.15rem;text-decoration:none}
+.navbar-links{display:flex;gap:28px;list-style:none}
+.navbar-links a{
+  color:var(--forest);text-decoration:none;font-size:.85rem;letter-spacing:1px;
+  text-transform:uppercase;font-weight:700;position:relative;padding:4px 0}
+.navbar-links a:after{
+  content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--gold);transition:.25s}
+.navbar-links a:hover:after{width:100%}
+.navbar-toggle{
+  display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.navbar-toggle span{width:24px;height:2px;background:var(--forest)}
+
+@media(max-width:860px){
+  .navbar-links{
+    position:absolute;top:64px;left:0;width:100%;background:var(--ivory);
+    flex-direction:column;gap:0;max-height:0;overflow:hidden;transition:.3s;
+    box-shadow:0 8px 12px rgba(0,0,0,.06)}
+  .navbar-links.open{max-height:400px}
+  .navbar-links a{display:block;padding:16px 24px;border-bottom:1px solid var(--grey)}
+  .navbar-toggle{display:flex}
+}
+.hero{
+height:100vh;color:white;text-align:center;display:flex;align-items:center;justify-content:center;
+background:url('https://lh3.googleusercontent.com/d/10vlvJD9DzLyjzX8cWLbQfao9OsPcFW6x') center/cover;
+position:relative}
+.hero:before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.45)}
+.hero-content{position:relative;z-index:1}
+.hero h1{font-size:4rem;color:white}
+.hero p{letter-spacing:2px}
+.countdown-narrative{margin:30px 0 10px;text-align:center}
+.countdown-intro,.countdown-outro{font-size:.8rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.75);margin:0 0 10px}
+.countdown-outro{margin:10px 0 0}
+.countdown-numbers{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.countdown-item{display:flex;flex-direction:column;align-items:center;min-width:70px}
+.countdown-number{font-family:"Playfair Display",serif;font-size:2.4rem;font-weight:700;color:white;line-height:1}
+.countdown-label{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:4px}
+
+/* ── Easter egg Sirius ── */
+.sirius-link{cursor:pointer;text-decoration:none;color:inherit;border-bottom:1px dashed rgba(255,255,255,.35);transition:.2s}
+.sirius-link:hover{border-bottom-color:var(--gold);color:var(--gold)}
+.sirius-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;align-items:center;justify-content:center;padding:20px}
+.sirius-overlay.open{display:flex}
+.sirius-modal{background:var(--ivory);border-radius:8px;padding:40px;max-width:380px;width:100%;position:relative;text-align:center}
+.sirius-close{position:absolute;top:14px;right:16px;background:none;border:none;font-size:1.2rem;cursor:pointer;color:#999}
+.sirius-modal h3{font-family:"Playfair Display",serif;font-size:1.5rem;color:var(--forest);margin-bottom:4px}
+.sirius-modal .sirius-sub{font-size:.75rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:28px}
+.sirius-cv{text-align:left;border-top:1px solid var(--grey);padding-top:20px;display:flex;flex-direction:column;gap:14px}
+.sirius-cv-row{display:flex;flex-direction:column;gap:3px}
+.sirius-cv-label{font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--sage)}
+.sirius-cv-value{font-size:.95rem;color:#444}
+.btn{display:inline-block;margin-top:20px;padding:14px 28px;border:1px solid var(--gold);color:white;text-decoration:none}
+.btn:hover{background:var(--gold);color:black}
+.section-title{text-align:center;margin-bottom:40px;font-size:2.4rem}
+.story-block,.info-card,.shop-item{
+background:white;padding:25px;border-left:4px solid var(--sage);
+box-shadow:0 5px 20px rgba(0,0,0,.05);margin-bottom:20px}
+.dress-code-card{border-left:4px solid var(--forest);background:linear-gradient(135deg,white 80%,rgba(72,94,77,.06))}
+.timeline-title{color:var(--gold);margin-bottom:4px}
+.timeline-tempo{font-size:.85rem;color:var(--sage);margin:0 0 10px;letter-spacing:.5px}
+
+/* ── Carosello foto e Logo overlay modificato ── */
+.carousel-section{padding:0;background:var(--forest);position:relative}
+.carousel{position:relative;overflow:hidden;max-height:80vh}
+.carousel-track{display:flex;transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.carousel-slide{min-width:100%;height:80vh;display:flex;align-items:center;justify-content:center}
+
+/* Box contenitore che si adatta esattamente alla dimensione reale della foto */
+.slide-wrapper {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  max-height: 100%;
+}
+.slide-wrapper img.main-img {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  display: block;
+  opacity: .92;
+}
+
+/* Stile ottimizzato per il logo: ora è posizionato sopra la foto desktop (ingrandito a 180px) */
+.carousel-logo {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  z-index: 20;
+  max-width: 180px; 
+  height: auto;
+  pointer-events: none;
+}
+
+.carousel-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(0,0,0,.35);border:none;color:white;
+  font-size:1.4rem;width:44px;height:44px;border-radius:50%;
+  cursor:pointer;z-index:10;transition:.2s;display:flex;align-items:center;justify-content:center}
+.carousel-btn:hover{background:rgba(0,0,0,.6)}
+.carousel-btn.prev{left:16px}
+.carousel-btn.next{right:16px}
+.carousel-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10}
+.carousel-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.4);border:none;cursor:pointer;transition:.2s;padding:0}
+.carousel-dot.active{background:var(--gold);transform:scale(1.2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.shop-item{display:flex;flex-direction:column}
+.shop-item .price{color:var(--gold);font-weight:700;margin:4px 0 8px}
+.shop-item .item-desc{color:#666;font-size:.9rem;margin-bottom:16px;flex-grow:1}
+
+.shop-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:35px}
+.shop-tab{
+  padding:10px 20px;border:1px solid var(--sage);background:white;color:var(--forest);
+  border-radius:30px;cursor:pointer;font-family:Lato,sans-serif;font-size:.85rem;
+  font-weight:700;letter-spacing:.5px;transition:.2s}
+.shop-tab:hover{background:rgba(168,181,162,.2)}
+.shop-tab.active{background:var(--forest);border-color:var(--forest);color:white}
+.qty-control{display:flex;align-items:center;gap:14px;margin-top:auto}
+.qty-control button{
+  width:36px;height:36px;border:1px solid var(--forest);background:white;color:var(--forest);
+  font-size:1.1rem;line-height:1;cursor:pointer;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;transition:.15s}
+.qty-control button:hover:not(:disabled){background:var(--forest);color:white}
+.qty-control button:disabled{opacity:.35;cursor:default}
+.qty-control .qty-value{min-width:24px;text-align:center;font-weight:700;font-family:"Playfair Display",serif}
+#cart{position:sticky;top:20px;background:white;padding:20px;border:1px solid var(--grey)}
+#cart h3{margin-bottom:10px}
+.cart-empty{color:#999;font-style:italic;padding:10px 0}
+.cart-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:10px 0;padding-bottom:10px;border-bottom:1px solid var(--grey)}
+.cart-row .cart-name{flex:1;font-size:.95rem}
+.cart-row .cart-controls{display:flex;align-items:center;gap:8px}
+.cart-row .cart-controls button{
+  width:26px;height:26px;border:1px solid var(--sage);background:white;color:var(--forest);
+  cursor:pointer;border-radius:50%;font-size:.9rem;line-height:1;display:flex;align-items:center;justify-content:center}
+.cart-row .cart-controls button:hover{background:var(--sage);color:white}
+.cart-row .cart-controls .remove-btn{border-color:#c0746a;color:#c0746a;font-size:1rem}
+.cart-row .cart-controls .remove-btn:hover{background:#c0746a;color:white}
+.cart-row .cart-price{min-width:55px;text-align:right;font-weight:700}
+#cart .total-row{display:flex;justify-content:space-between;font-size:1.15rem;margin-top:5px}
+.guest-name{margin:18px 0 4px}
+.guest-name label{display:block;font-size:.8rem;font-weight:700;letter-spacing:.5px;color:var(--forest);margin-bottom:6px;text-transform:uppercase}
+.guest-name input{width:100%;padding:10px 12px;border:1px solid var(--grey);border-radius:4px;font-family:Lato,sans-serif;font-size:.95rem;background:white}
+.guest-name input:focus{outline:none;border-color:var(--sage)}
+
+.confirm-btn{
+  width:100%;margin-top:18px;padding:14px;border:none;border-radius:6px;
+  background:var(--gold);color:white;font-family:"Playfair Display",serif;
+  font-size:1rem;font-weight:700;letter-spacing:.5px;cursor:pointer;transition:.2s}
+.confirm-btn:hover{background:#b3925a}
+.confirm-btn:disabled{background:var(--grey);cursor:not-allowed}
+
+.share-btn{
+  width:100%;margin-top:12px;padding:12px;border:1px solid var(--forest);border-radius:6px;
+  background:white;color:var(--forest);font-family:"Playfair Display",serif;
+  font-size:.95rem;font-weight:700;letter-spacing:.5px;cursor:pointer;transition:.2s}
+.share-btn:hover{background:var(--forest);color:white}
+
+.summary-overlay{
+  display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:200;
+  align-items:center;justify-content:center;padding:20px}
+.summary-overlay.open{display:flex}
+.summary-modal{
+  background:var(--ivory);max-width:480px;width:100%;max-height:85vh;overflow-y:auto;
+  padding:36px 30px;position:relative;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.summary-close{
+  position:absolute;top:16px;right:16px;width:32px;height:32px;border:none;background:none;
+  font-size:1.3rem;color:var(--forest);cursor:pointer}
+.summary-modal h3{text-align:center;margin-bottom:6px}
+.summary-tagline{text-align:center;font-style:italic;color:#666;margin-bottom:24px;font-size:.95rem}
+.summary-list{list-style:none;margin-bottom:20px}
+.summary-list li{
+  display:flex;justify-content:space-between;gap:10px;padding:8px 0;
+  border-bottom:1px solid var(--grey);font-size:.95rem}
+.summary-total{
+  display:flex;justify-content:space-between;font-size:1.2rem;font-weight:700;
+  padding-top:12px;color:var(--forest)}
+
+.location-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:30px}
+.location-card{background:white;box-shadow:0 5px 20px rgba(0,0,0,.05);overflow:hidden}
+.location-photo{
+  width:100%;height:260px;object-fit:cover;display:block;background:var(--grey)}
+.location-photo-placeholder{
+  width:100%;height:260px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--grey),var(--sage));color:white;
+  font-family:"Playfair Display",serif;font-size:1.1rem;text-align:center;padding:20px}
+.location-body{padding:25px;border-left:4px solid var(--sage)}
+.location-body h3{margin-bottom:6px}
+.location-address{color:#666;margin-bottom:18px;font-size:.95rem}
+.location-map{width:100%;height:260px;border:0;display:block}
+iframe{width:100%;height:900px;border:none}
+footer{text-align:center;padding:70px 20px;background:white}
+.quote{font-style:italic;font-size:1.2rem;max-width:700px;margin:auto}
+
+@media(max-width:768px){
+section{padding:60px 0}
+.hero h1{font-size:2.4rem}
+.hero p{font-size:.95rem}
+.section-title{font-size:1.7rem;margin-bottom:28px}
+
+.countdown{gap:10px;margin:22px 0 6px}
+.countdown-item{min-width:56px}
+.countdown-number{font-size:1.7rem}
+.countdown-label{font-size:.6rem}
+
+.navbar-inner{height:56px}
+.navbar-links{top:56px}
+
+.location-grid{grid-template-columns:1fr;gap:22px}
+.location-photo,.location-photo-placeholder,.location-map{height:200px}
+
+#rsvp iframe{height:650px}
+
+#cart{position:static;margin-top:30px}
+
+.shop-item{padding:20px}
+
+.shop-tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:6px;-webkit-overflow-scrolling:touch}
+.shop-tab{flex:0 0 auto;white-space:nowrap}
+
+/* Adattamento logo per la versione mobile (rimane a 100px) */
+.carousel-logo {
+  max-width: 100px;
+  bottom: 12px;
+  left: 12px;
+}
+}
+
+@media(max-width:480px){
+.hero h1{font-size:1.9rem}
+.btn{padding:12px 20px;font-size:.85rem}
+.countdown-item{min-width:48px}
+.countdown-number{font-size:1.4rem}
+.summary-modal{padding:28px 20px}
+}
+
+/* ── RSVP form ── */
+.rsvp-form{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:24px}
+.rsvp-field{display:flex;flex-direction:column;gap:7px}
+.rsvp-field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.rsvp-field-row{grid-template-columns:1fr}}
+.rsvp-label{font-size:.78rem;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--forest)}
+.rsvp-req{color:var(--gold)}
+.rsvp-input{padding:11px 14px;border:1px solid #ccc;border-radius:5px;font-family:Lato,sans-serif;font-size:.95rem;background:#fff;transition:.15s}
+.rsvp-input:focus{outline:none;border-color:var(--sage);box-shadow:0 0 0 3px rgba(168,181,162,.2)}
+.rsvp-input.error{border-color:#c0746a}
+.rsvp-textarea{resize:vertical;min-height:90px}
+.rsvp-radio-group,.rsvp-check-group{display:flex;flex-direction:column;gap:10px}
+.rsvp-radio,.rsvp-check{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:.95rem}
+.rsvp-radio input,.rsvp-check input{accent-color:var(--forest);width:16px;height:16px;flex-shrink:0;cursor:pointer}
+.rsvp-submit{margin-top:8px;padding:15px;border:none;border-radius:6px;background:var(--gold);color:#fff;font-family:"Playfair Display",serif;font-size:1rem;font-weight:700;letter-spacing:.5px;cursor:pointer;transition:.2s}
+.rsvp-submit:hover{background:#b3925a}
+.rsvp-submit:disabled{background:var(--grey);cursor:not-allowed}
+.rsvp-thankyou{max-width:520px;margin:0 auto;text-align:center;padding:60px 20px}
+.rsvp-thankyou-inner{border:1px solid var(--sage);border-radius:8px;padding:48px 36px;background:#fff}
+.rsvp-thankyou-title{font-family:"Playfair Display",serif;font-size:1.4rem;color:var(--forest);margin-bottom:16px}
+.rsvp-thankyou-text{font-size:.95rem;color:#555;margin-bottom:24px}
+.rsvp-thankyou-firma{font-family:"Playfair Display",serif;font-size:1.05rem;color:var(--gold)}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a class="navbar-brand" href="#">F & L</a>
+    <button class="navbar-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="navbar-links" id="navLinks">
+      <li><a href="#storia">Storia</a></li>
+      <li><a href="#concerto">Il Concerto</a></li>
+      <li><a href="#info">Info</a></li>
+      <li><a href="#rsvp">RSVP</a></li>
+      <li><a href="#shop">Music Shop</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<section class="hero">
+<div class="hero-content">
+<h1>Filippo & Lucia</h1>
+<p>Una storia in musica</p>
+<p>4 settembre 2026</p>
+
+<div class="countdown-narrative" id="countdown" aria-live="polite">
+  <p class="countdown-intro">Mancano</p>
+  <div class="countdown-numbers">
+    <div class="countdown-item"><span class="countdown-number" id="cd-days">--</span><span class="countdown-label">Giorni</span></div>
+    <div class="countdown-item"><span class="countdown-number" id="cd-hours">--</span><span class="countdown-label">Ore</span></div>
+    <div class="countdown-item"><span class="countdown-number" id="cd-minutes">--</span><span class="countdown-label">Minuti</span></div>
+    <div class="countdown-item"><span class="countdown-number" id="cd-seconds">--</span><span class="countdown-label">Secondi</span></div>
+  </div>
+  <p class="countdown-outro">all'inizio del concerto</p>
+</div>
+
+<a class="btn" href="#rsvp">Il vostro posto in orchestra</a>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2 class="section-title">Benvenuti</h2>
+<p style="text-align:center;max-width:800px;margin:auto;">
+La musica ci ha fatto incontrare, crescere e costruire il nostro percorso insieme.
+Siamo felici di invitarvi a condividere con noi questo nuovo capitolo della nostra storia.
+</p>
+</div>
+</section>
+
+<section id="storia">
+<div class="container">
+<h2 class="section-title">La Melodia</h2>
+
+<div class="story-block">
+<h3 class="timeline-title">Ouverture — Ferrara</h3>
+<p class="timeline-tempo"><em>Allegro con spirito</em></p>
+<p>La nostra storia è iniziata a Ferrara, tra spartiti, sale prova e lunghe giornate di studio. Per un po' è rimasta una musica di sottofondo, presente ma discreta, che cresceva senza fretta. Poi, quando è arrivato il momento giusto, quella melodia ha trovato finalmente la propria voce.</p>
+</div>
+
+<div class="story-block">
+<h3 class="timeline-title">Atto I — Oltre la distanza</h3>
+<p class="timeline-tempo"><em>Con moto</em></p>
+<p>Poco dopo, le nostre strade hanno iniziato a correre in parallelo tra paesi diversi. Lucia si è trasferita in Germania per proseguire gli studi, mentre Filippo è rimasto a Ferrara tra università, lavoro e musica. Per quattro anni la nostra quotidianità è stata fatta di treni, aeroporti, valigie e orari improbabili, con una costante: trovare sempre il modo di ritrovarsi.</p>
+</div>
+
+<div class="story-block">
+<h3 class="timeline-title">Atto II — A tempo sospeso</h3>
+<p class="timeline-tempo"><em>Adagio</em></p>
+<p>Quando finalmente la distanza sembrava destinata a finire, il mondo si è fermato. Lucia era tornata in Italia, ma il lockdown ci ha riportati ancora una volta a vivere separati, tra Como e Ferrara. È stato un tempo strano e inatteso, che ci ha insegnato a dare valore alle piccole cose e ha reso ancora più solido ciò che stavamo costruendo.</p>
+</div>
+
+<div class="story-block">
+<h3 class="timeline-title">Atto III — Casa</h3>
+<p class="timeline-tempo"><em>Finale con brio</em></p>
+<p>Nel gennaio 2024, durante una visita agli Harry Potter Studios di Londra, davanti della vetrina di Ollivander, un anello nascosto dentro un Boccino d'Oro ha dato inizio a un nuovo capitolo. Qualche mese dopo siamo riusciti a trovare la nostra prima casa ad Agrate Brianza, conquistata tra documenti firmati a distanza e connessioni internet ballerine durante una produzione orchestrale a Orvieto. Poco dopo è arrivato Sirius Lago Benvenuti, magnifico gatto siberiano e instancabile supervisore della vita domestica. Nel dicembre 2025 abbiamo infine acquistato la nostra casa, dove oggi viviamo tutti e tre e da cui parte il viaggio che ci porterà al 4 settembre 2026.</p>
+</div>
+
+</div>
+</section>
+
+<section class="carousel-section">
+  <div class="carousel" id="photoCarousel">
+    <div class="carousel-track" id="carouselTrack">
+      
+      <div class="carousel-slide">
+        <div class="slide-wrapper">
+          <img src="https://lh3.googleusercontent.com/d/1bQ-SACfoscKoudwlEeu76AgBlfBAvPgO" alt="Filippo e Lucia" class="main-img">
+          <img src="https://lh3.googleusercontent.com/d/1JZKtFwbrpxIG8VWzzS5ohl5jQ9NoIT4k" alt="Logo" class="carousel-logo">
+        </div>
+      </div>
+      
+      <div class="carousel-slide">
+        <div class="slide-wrapper">
+          <img src="https://lh3.googleusercontent.com/d/1RMatlliVwV2hkC7_4eNo5Wqd2Et5jClf" alt="Filippo e Lucia 2" class="main-img">
+          <img src="https://lh3.googleusercontent.com/d/1JZKtFwbrpxIG8VWzzS5ohl5jQ9NoIT4k" alt="Logo" class="carousel-logo">
+        </div>
+      </div>
+      
+      <div class="carousel-slide">
+        <div class="slide-wrapper">
+          <img src="https://lh3.googleusercontent.com/d/19nYUH7GmTzYO3kWlINo8kTM412nqnIfU" alt="Filippo e Lucia 3" class="main-img">
+          <img src="https://lh3.googleusercontent.com/d/1JZKtFwbrpxIG8VWzzS5ohl5jQ9NoIT4k" alt="Logo" class="carousel-logo">
+        </div>
+      </div>
+      
+      <div class="carousel-slide">
+        <div class="slide-wrapper">
+          <img src="https://lh3.googleusercontent.com/d/1vvFeljFSjtxINclDK4RUJQ_g6JBIlTBo" alt="Filippo e Lucia 4" class="main-img">
+          <img src="https://lh3.googleusercontent.com/d/1JZKtFwbrpxIG8VWzzS5ohl5jQ9NoIT4k" alt="Logo" class="carousel-logo">
+        </div>
+      </div>
+      
+      <div class="carousel-slide">
+        <div class="slide-wrapper">
+          <img src="https://lh3.googleusercontent.com/d/1Suj4f_WCSJc3v2aru8JQFXuWtmBbJ9Cv" alt="Filippo e Lucia 5" class="main-img">
+          <img src="https://lh3.googleusercontent.com/d/1JZKtFwbrpxIG8VWzzS5ohl5jQ9NoIT4k" alt="Logo" class="carousel-logo">
+        </div>
+      </div>
+      
+      <div class="carousel-slide">
+        <div class="slide-wrapper">
+          <img src="https://lh3.googleusercontent.com/d/1362yOnQvSL3CX9WmNAZhGYlUrHVaUwvf" alt="Filippo e Lucia 6" class="main-img">
+          <img src="https://lh3.googleusercontent.com/d/1JZKtFwbrpxIG8VWzzS5ohl5jQ9NoIT4k" alt="Logo" class="carousel-logo">
+        </div>
+      </div>
+      
+      <div class="carousel-slide">
+        <div class="slide-wrapper">
+          <img src="https://lh3.googleusercontent.com/d/1MgmQ7LLFax36eQDCT6uXWnmC7egbRXyk" alt="Filippo e Lucia 7" class="main-img">
+          <img src="https://lh3.googleusercontent.com/d/1JZKtFwbrpxIG8VWzzS5ohl5jQ9NoIT4k" alt="Logo" class="carousel-logo">
+        </div>
+      </div>
+      
+      <div class="carousel-slide">
+        <div class="slide-wrapper">
+          <img src="https://lh3.googleusercontent.com/d/1ANoe2P8D9G4jnLc2H2A7zi8SYaXZ0mum" alt="Filippo e Lucia 8" class="main-img">
+          <img src="https://lh3.googleusercontent.com/d/1JZKtFwbrpxIG8VWzzS5ohl5jQ9NoIT4k" alt="Logo" class="carousel-logo">
+        </div>
+      </div>
+
+    </div>
+    <button class="carousel-btn prev" onclick="carouselMove(-1)" aria-label="Foto precedente">‹</button>
+    <button class="carousel-btn next" onclick="carouselMove(1)" aria-label="Foto successiva">›</button>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+</section>
+
+<section id="concerto">
+<div class="container">
+<h2 class="section-title">Il Concerto</h2>
+
+<div class="info-card">
+<h3>Cerimonia</h3>
+<p><strong>Ore 15:30</strong><br>Sala Bianca, Teatro Sociale di Como</p>
+</div>
+
+<div class="info-card">
+<h3>Intervallo</h3>
+<p>Breve aperitivo negli spazi del Teatro Sociale.</p>
+</div>
+
+<div class="info-card">
+<h3>Gran Finale</h3>
+<p><strong>Ore 19:00</strong><br>Cena e festeggiamenti presso Hotel Asnigo, Cernobbio.</p>
+</div>
+
+<div class="info-card dress-code-card">
+<h3>Dress Code</h3>
+<p>Libero. Noi vestiremo le sfumature del verde 🌿 — se vi va di 'accordarvi' ci farà piacere, ma la cosa più importante è che indossiate il vostro sorriso migliore.</p>
+</div>
+
+</div>
+</section>
+
+<section id="info">
+<div class="container">
+<h2 class="section-title">Informazioni Utili</h2>
+<div class="location-grid">
+
+<div class="location-card">
+  <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHWRC0VydbrY3ygy59pkgLnGzL923jEH-WXOe7Cc56F3zJrSLBjOOzqlzEfedVDAOwcIZ_EAyUWTpmljm2tYEji8ZeVvxE8z84xONJqMB0c-egypSK0JfCNdCjCFfOT7ni2Xvm0=s1360-w1360-h1020" alt="Sala Bianca, Teatro Sociale di Como" class="location-photo">
+  <div class="location-body">
+    <h3>Teatro Sociale di Como</h3>
+    <p class="location-address">Via Vincenzo Bellini 3, Como</p>
+  </div>
+  <iframe class="location-map" loading="lazy"
+    src="https://www.google.com/maps?q=Teatro+Sociale+di+Como,+Via+Vincenzo+Bellini+3,+Como&output=embed">
+  </iframe>
+</div>
+
+<div class="location-card">
+ <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAEkSNqYa3AU5xVcS2qrIUwwgcivN4e_N76xSWErTKnuygHlRBNgWabvctiA5gAmid--EFiKUwVD1e9z1Brr2v4e8_YlP1lPeVNFKqYbNqY8kF5kJZjm6mZscbIzCw64pI3wE2t5=s1360-w1360-h1020" alt="Hotel Asnigo, Cernobbio" class="location-photo">
+  <div class="location-body">
+    <h3>Hotel Asnigo</h3>
+    <p class="location-address">Via Noseda 2, Cernobbio</p>
+  </div>
+  <iframe class="location-map" loading="lazy"
+    src="https://www.google.com/maps?q=Hotel+Asnigo,+Via+Noseda+2,+Cernobbio&output=embed">
+  </iframe>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="rsvp">
+<div class="container">
+<h2 class="section-title">Il vostro posto in orchestra</h2>
+<p style="text-align:center;margin-bottom:32px;color:var(--forest);font-size:.95rem">Confermate la vostra presenza entro il <strong>15 luglio 2026</strong>.</p>
+
+<div id="rsvpForm" class="rsvp-form">
+
+  <div class="rsvp-field">
+    <label class="rsvp-label" for="rsvpNome">Nome e cognome <span class="rsvp-req">*</span></label>
+    <input class="rsvp-input" type="text" id="rsvpNome" placeholder="Mario Rossi">
+  </div>
+
+  <div class="rsvp-field-row">
+    <div class="rsvp-field">
+      <label class="rsvp-label" for="rsvpEmail">Email</label>
+      <input class="rsvp-input" type="email" id="rsvpEmail" placeholder="mario@esempio.it">
+    </div>
+    <div class="rsvp-field">
+      <label class="rsvp-label" for="rsvpTel">Telefono</label>
+      <input class="rsvp-input" type="tel" id="rsvpTel" placeholder="+39 333 1234567">
+    </div>
+  </div>
+
+  <div class="rsvp-field">
+    <label class="rsvp-label">Presenza <span class="rsvp-req">*</span></label>
+    <div class="rsvp-radio-group">
+      <label class="rsvp-radio"><input type="radio" name="presenza" value="Sì, ci sarò"> <span>Sì, ci sarò 🎶</span></label>
+      <label class="rsvp-radio"><input type="radio" name="presenza" value="No, purtroppo non posso"> <span>No, purtroppo non posso</span></label>
+      <label class="rsvp-radio"><input type="radio" name="presenza" value="Sono nel conteggio di qualcun altro"> <span>Sono nel conteggio di qualcun altro</span></label>
+    </div>
+  </div>
+
+  <div class="rsvp-field">
+    <label class="rsvp-label">Accompagnatori (seleziona tutto ciò che si applica)</label>
+    <div class="rsvp-check-group">
+      <label class="rsvp-check"><input type="checkbox" name="accompagnatori" value="1 persona"> <span>+1 persona</span></label>
+      <label class="rsvp-check"><input type="checkbox" name="accompagnatori" value="2 persone"> <span>+2 persone</span></label>
+      <label class="rsvp-check"><input type="checkbox" name="accompagnatori" value="3 persone"> <span>+3 persone</span></label>
+      <label class="rsvp-check"><input type="checkbox" name="accompagnatori" value="Vale anche il gatto?"> <span>Vale anche il gatto? 🐱</span></label>
+      <label class="rsvp-check"><input type="checkbox" name="accompagnatori" value="Vale anche il cane?"> <span>Vale anche il cane? 🐶</span></label>
+      <label class="rsvp-check"><input type="checkbox" name="accompagnatori" value="Ho un/a bimbo/a sotto i 2 anni"> <span>Ho un/a bimbo/a sotto i 2 anni</span></label>
+      <label class="rsvp-check"><input type="checkbox" name="accompagnatori" value="Ho un/a bimbo/a tra i 2 e i 10 anni"> <span>Ho un/a bimbo/a tra i 2 e i 10 anni</span></label>
+    </div>
+  </div>
+
+  <div class="rsvp-field">
+    <label class="rsvp-label" for="rsvpAllergie">Allergie, intolleranze o preferenze alimentari</label>
+    <textarea class="rsvp-input rsvp-textarea" id="rsvpAllergie" placeholder="Es. vegetariano, vegano, celiaco, intollerante al lattosio…"></textarea>
+  </div>
+
+  <button class="rsvp-submit" onclick="submitRsvp()">🎻 Prenota il tuo posto</button>
+</div>
+
+<div id="rsvpThankYou" class="rsvp-thankyou" style="display:none">
+  <div class="rsvp-thankyou-inner">
+    <p class="rsvp-thankyou-title">Il vostro posto in orchestra è stato riservato.</p>
+    <p class="rsvp-thankyou-text">Non vediamo l'ora di condividere con voi questa giornata.</p>
+    <p class="rsvp-thankyou-firma">Filippo, Lucia<br><span style="font-size:.85rem">e Sirius 🐾</span></p>
+  </div>
+</div>
+
+</div>
+</section>
+
+<section id="shop">
+<div class="container">
+<h2 class="section-title">Music Shop</h2>
+<p style="text-align:center;margin-bottom:30px">Scegli in totale libertà come partecipare: puoi selezionare un singolo elemento, metterne insieme diversi nel carrello, o semplicemente sfogliare queste pagine. Ogni vostra scelta, che sia un piccolo pensiero o anche solo la gioia di esserci, contribuirà al progetto più grande: costruire il nostro futuro insieme.</p>
+
+<div class="shop-tabs" id="shopTabs"></div>
+
+<div class="grid">
+<div id="shopItems"></div>
+
+<div id="cart">
+<h3>Carrello</h3>
+<div id="cartItems"><p class="cart-empty">Il carrello è vuoto</p></div>
+<hr style="margin:15px 0">
+<div class="total-row"><strong>Totale</strong><strong>€ <span id="total">0</span></strong></div>
+<div class="guest-name">
+  <label for="guestName">Il tuo nome</label>
+  <input type="text" id="guestName" placeholder="Nome e Cognome">
+</div>
+<button id="confirmBtn" class="confirm-btn" onclick="showSummary()">🎉 Conferma e festeggia</button>
+</div>
+</div>
+
+<div id="summaryOverlay" class="summary-overlay" onclick="closeSummary(event)">
+  <div class="summary-modal">
+    <button class="summary-close" onclick="closeSummary()" aria-label="Chiudi">✕</button>
+    <div id="summaryContent"></div>
+  </div>
+</div>
+
+</div>
+</section>
+
+<footer>
+<p class="quote">
+"Dopo molti chilometri, molte partenze e molti ritorni,
+la melodia più bella è finalmente quella che chiamiamo casa."
+</p>
+<br>
+<p>Supervisione artistica: <span class="sirius-link" onclick="document.getElementById('siriusOverlay').classList.add('open')">Sirius Lago Benvenuti 🐾</span></p>
+</footer>
+
+<div id="siriusOverlay" class="sirius-overlay" onclick="if(event.target===this)this.classList.remove('open')">
+  <div class="sirius-modal">
+    <button class="sirius-close" onclick="document.getElementById('siriusOverlay').classList.remove('open')" aria-label="Chiudi">✕</button>
+    <div style="font-size:3rem;margin-bottom:12px">
+      <img src="https://lh3.googleusercontent.com/d/1ianWxfEBRTNX-6QEb-ImesrDJvBMNiwT" alt="Sirius Lago Benvenuti" style="width:120px;height:120px;object-fit:cover;border-radius:50%;border:3px solid var(--sage);display:block;margin:0 auto 12px">
+    </div>
+    <h3>Sirius Lago Benvenuti</h3>
+    <p class="sirius-sub">Curriculum Vitae</p>
+    <div class="sirius-cv">
+      <div class="sirius-cv-row">
+        <span class="sirius-cv-label">Specializzazione</span>
+        <span class="sirius-cv-value">Fusa ad alto rendimento emotivo</span>
+      </div>
+      <div class="sirius-cv-row">
+        <span class="sirius-cv-label">Esperienza</span>
+        <span class="sirius-cv-value">Direttore artistico dal 2024<br><em style="font-size:.85rem;color:#999">nessuna interruzione, nessun giorno libero</em></span>
+      </div>
+      <div class="sirius-cv-row">
+        <span class="sirius-cv-label">Competenze</span>
+        <span class="sirius-cv-value">Sonno · Croccantini premium · Controllo qualità divani · Supervisione delle prove</span>
+      </div>
+      <div class="sirius-cv-row">
+        <span class="sirius-cv-label">Lingue</span>
+        <span class="sirius-cv-value">Miagolio (madrelingua) · Silenzio eloquente (fluente)</span>
+      </div>
+      <div class="sirius-cv-row">
+        <span class="sirius-cv-label">Referenze</span>
+        <span class="sirius-cv-value">Filippo e Lucia — disponibili su richiesta</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const categories = [
+  {
+    id: 'accessori',
+    label: 'Accessori indispensabili',
+    items: {
+      colofonia: { name: 'Pezzetto di colofonia',            price: 5,   emoji: '🟤', desc: 'Piccolo ma essenziale: senza non si suona una nota.' },
+      matita: { name: 'Matita per annotazioni fondamentali', price: 10, emoji: '🎼', desc: 'Per tutte le idee che non vogliamo dimenticare.' },
+      leggio: { name: 'Leggio da viaggio',                  price: 25, emoji: '🎵', desc: 'Per sostenere i progetti futuri, uno spartito alla volta.' },
+      corde:  { name: 'Set di corde orchestrali',          price: 55,  emoji: '🎻', desc: 'Per affrontare con la giusta tensione ogni nuova avventura.' },
+      custodia: { name: 'Custodia rigida professionale',    price: 90, emoji: '💼', desc: 'Per proteggere tutto ciò che conta, dentro e fuori dall\'orchestra. (ed ovviamente attacare dei nuovi sticker)' }
+    }
+  },
+  {
+    id: 'sopravvivenza',
+    label: 'Sopravvivenza del musicista',
+    items: {
+      caffe:    { name: 'Scorta strategica di caffè',       price: 15, emoji: '☕', desc: 'Essenziale per affrontare prove mattutine e giornate particolarmente intense.' },
+      cena:     { name: 'Cena dopo il concerto',             price: 40, emoji: '🍝', desc: 'Per recuperare le energie dopo una lunga giornata.' },
+      benzina:  { name: 'Carburante per tournée improbabili', price: 75, emoji: '🚗', desc: 'Destinazione ignota, entusiasmo garantito.' },
+      weekend:  { name: 'Weekend di puro riposo',            price: 120, emoji: '🛌', desc: 'Niente prove, niente sveglie. Solo silenzio (per una volta).' }
+    }
+  },
+  {
+    id: 'futuro',
+    label: 'Progetti futuri',
+    items: {
+      spartiti:    { name: 'Collezione di spartiti rari',          price: 30,  emoji: '📖', desc: 'Per ampliare il repertorio con qualcosa di speciale.' },
+      masterclass: { name: 'Masterclass internazionale',          price: 100, emoji: '✈️', desc: 'Per continuare a imparare e scoprire nuovi orizzonti.' },
+      stradivari:  { name: 'Restauro dello Stradivari immaginario', price: 150, emoji: '🎻', desc: 'Non possediamo uno Stradivari. Ma non si sa mai.' },
+      casa:        { name: 'Fondo "Finalmente proprietari"',        price: 250, emoji: '🏠', desc: 'Per trasformare una casa in un luogo pieno di musica.' },
+      tournee:     { name: 'Quota tournée mondiale immaginaria',     price: 500, emoji: '🌍', desc: 'Dal Conservatorio di Ferrara al resto del mondo. Un giorno, forse.' }
+    }
+  },
+  {
+    id: 'felina',
+    label: 'Direzione artistica felina',
+    items: {
+      giocattolo: { name: 'Giocattolo della settimana',                     price: 8,   emoji: '🧶', desc: 'Durerà tre giorni, ma ne vale comunque la pena.' },
+      crocchette: { name: 'Scorta annuale di croccantini premium',          price: 20,  emoji: '🐾', desc: 'Approvati personalmente da Sirius.' },
+      coccole:    { name: 'Fondo coccole e manutenzione ordinaria',          price: 50,  emoji: '🐈', desc: 'Un investimento ad altissimo rendimento emotivo.' },
+      patrimonio: { name: 'Programma di valorizzazione del patrimonio felino', price: 100, emoji: '👑', desc: 'Per mantenere elevati gli standard estetici di Sirius Lago Benvenuti.' },
+      trono:      { name: 'Trono ufficiale di Sirius Lago Benvenuti',        price: 180, emoji: '🛋️', desc: 'Perché un gatto siberiano merita una seduta all\'altezza del proprio rango.' }
+    }
+  }
+];
+
+const products = {};
+categories.forEach(cat => {
+  Object.entries(cat.items).forEach(([id, item]) => { products[id] = item; });
+});
+
+let activeCategory = categories[0].id;
+const cart = {};
+
+function renderTabs(){
+  const tabsEl = document.getElementById('shopTabs');
+  tabsEl.innerHTML = categories.map(cat => `
+    <button class="shop-tab ${cat.id === activeCategory ? 'active' : ''}" onclick="selectCategory('${cat.id}')">
+      ${cat.label}
+    </button>
+  `).join('');
+}
+
+function selectCategory(catId){
+  activeCategory = catId;
+  renderTabs();
+  renderShopItems();
+}
+
+function renderShopItems(){
+  const cat = categories.find(c => c.id === activeCategory);
+  const itemsEl = document.getElementById('shopItems');
+  itemsEl.innerHTML = Object.entries(cat.items).map(([id, item]) => `
+    <div class="shop-item" data-id="${id}">
+      <h3>${item.emoji} ${item.name}</h3>
+      <p class="price">€${item.price}</p>
+      <p class="item-desc">${item.desc}</p>
+      <div class="qty-control">
+        <button onclick="changeQty('${id}',-1)" aria-label="Diminuisci">−</button>
+        <span class="qty-value" id="qty-${id}">${cart[id] || 0}</span>
+        <button onclick="changeQty('${id}',1)" aria-label="Aumenta">+</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function changeQty(id, delta){
+  const current = cart[id] || 0;
+  const next = Math.max(0, current + delta);
+  if(next === 0){
+    delete cart[id];
+  } else {
+    cart[id] = next;
+  }
+  renderAll();
+}
+
+function setQty(id, value){
+  const next = Math.max(0, parseInt(value, 10) || 0);
+  if(next === 0){
+    delete cart[id];
+  } else {
+    cart[id] = next;
+  }
+  renderAll();
+}
+
+function removeFromCart(id){
+  delete cart[id];
+  renderAll();
+}
+
+function renderAll(){
+  for(const id in products){
+    const qtyEl = document.getElementById('qty-' + id);
+    if(qtyEl) qtyEl.textContent = cart[id] || 0;
+  }
+
+  const cartItemsEl = document.getElementById('cartItems');
+  const ids = Object.keys(cart);
+  let total = 0;
+
+  if(ids.length === 0){
+    cartItemsEl.innerHTML = '<p class="cart-empty">Il carrello è vuoto</p>';
+  } else {
+    let html = '';
+    for(const id of ids){
+      const { name, price, emoji } = products[id];
+      const qty = cart[id];
+      const subtotal = qty * price;
+      total += subtotal;
+      html += `
+        <div class="cart-row">
+          <span class="cart-name">${emoji} ${name}</span>
+          <div class="cart-controls">
+            <button onclick="changeQty('${id}',-1)" aria-label="Diminuisci">−</button>
+            <span class="qty-value">${qty}</span>
+            <button onclick="changeQty('${id}',1)" aria-label="Aumenta">+</button>
+            <button class="remove-btn" onclick="removeFromCart('${id}')" aria-label="Rimuovi">✕</button>
+          </div>
+          <span class="cart-price">€${subtotal}</span>
+        </div>`;
+    }
+    cartItemsEl.innerHTML = html;
+  }
+
+  document.getElementById('total').textContent = total;
+}
+
+renderTabs();
+renderShopItems();
+renderAll();
+
+function buildSummaryMessage(ids, total){
+  if(ids.length === 0){
+    return "Carrello vuoto... ma la curiosità di guardare non si paga! Tornate quando volete 😉";
+  }
+
+  const inCategory = catId => ids.some(id => categories.find(c => c.id === catId).items[id]);
+  const onlyCategory = catId => ids.every(id => categories.find(c => c.id === catId).items[id]);
+
+  if(onlyCategory('felina')){
+    return "Sirius Lago Benvenuti ringrazia per l'attenzione esclusiva: la sua direzione artistica approva con la coda dritta. 🐾👑";
+  }
+  if(ids.includes('stradivari') && ids.includes('tournee')){
+    return "Stradivari immaginario + tournée mondiale immaginaria: a questo punto manca solo l'agente immaginario. Comunque, grazie di cuore! 🎻🌍";
+  }
+  if(ids.includes('casa') && total >= 250){
+    return "State letteralmente costruendo un pezzo della nostra futura casa. Ci commuoviamo (e iniziamo a pensare ai mobili). 🏠💛";
+  }
+  if(inCategory('sopravvivenza') && ids.length === ids.filter(id => categories.find(c => c.id === 'sopravvivenza').items[id]).length){
+    return "Avete pensato solo alla nostra sopravvivenza: cena, caffè e benzina. Promettiamo di arrivare vivi al prossimo concerto. ☕🚗🍝";
+  }
+  if(total >= 300){
+    return "Numeri importanti! State suonando un assolo di generosità che si sente fino in fondo alla sala. Grazie infinite. 🎻✨";
+  }
+  if(total <= 20){
+    return "Piccolo ma sincero, come un pizzicato ben piazzato. Grazie di cuore! 🎵";
+  }
+  return "Un mix perfetto, proprio come la nostra storia tra Ferrara, la Germania e il lago di Como. Grazie per essere parte della melodia! 🎶";
+}
+
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwwPUexm4dMGi46NHAX-ujr0zRGsPJ5m3Ws7Nl3aSWWy5ZYnLG0f1TQ1KFHQGWqaNbYXw/exec";
+
+function saveOrderToSheet(nome, ids, total, message){
+  if(ids.length === 0) return;
+  if(GOOGLE_SCRIPT_URL.includes('INSERISCI_URL_GOOGLE_SCRIPT')) return;
+
+  const articoli = ids.map(id => {
+    const { name, price } = products[id];
+    const qty = cart[id];
+    return `${qty}x ${name} (€${qty * price})`;
+  }).join(', ');
+
+  const payload = { nome, articoli, totale: total, messaggio: message };
+
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(payload)
+  }).catch(err => console.error('Errore salvataggio ordine:', err));
+}
+
+let lastOrder = null;
+
+function shareOrder(){
+  if(!lastOrder) return;
+
+  saveOrderToSheet(lastOrder.guestName, lastOrder.ids, lastOrder.total, lastOrder.message);
+
+  const shareText = `${lastOrder.message}\n\nScopri di più sul matrimonio di Filippo & Lucia 🎻: ${window.location.href}`;
+
+  if(navigator.share){
+    navigator.share({
+      title: 'Filippo & Lucia — 4 settembre 2026',
+      text: shareText,
+      url: window.location.href
+    }).catch(() => {});
+  } else if(navigator.clipboard){
+    navigator.clipboard.writeText(shareText).then(() => {
+      alert('Messaggio copiato! Incollalo dove preferisci 💌');
+    });
+  } else {
+    alert(shareText);
+  }
+}
+
+function showSummary(){
+  const ids = Object.keys(cart);
+  const guestNameInput = document.getElementById('guestName');
+  const guestName = guestNameInput.value.trim();
+
+  if(ids.length > 0 && guestName === ''){
+    guestNameInput.focus();
+    guestNameInput.style.borderColor = '#c0746a';
+    alert('Inserisci il tuo nome prima di confermare, così sappiamo a chi dire grazie! 💛');
+    return;
+  }
+  guestNameInput.style.borderColor = '';
+
+  let total = 0;
+  const rows = ids.map(id => {
+    const { name, price, emoji } = products[id];
+    const qty = cart[id];
+    const subtotal = qty * price;
+    total += subtotal;
+    return `<li><span>${emoji} ${qty} × ${name}</span><span>€${subtotal}</span></li>`;
+  }).join('');
+
+  const message = buildSummaryMessage(ids, total);
+  lastOrder = { guestName, ids, total, message };
+
+  let paymentHTML = '';
+  if (total > 0) {
+    paymentHTML = `
+      <div id="paymentSection" style="text-align: center; border-top: 1px solid #ddd; padding-top: 20px; margin-top: 20px;">
+        <p style="font-size: 0.9rem; margin-bottom: 15px; color: #555;">
+          Scansiona il QR Code con l'app della tua banca per compilare automaticamente il bonifico, oppure copia i dati sotto.
+        </p>
+        <div id="qrcode" style="display: flex; justify-content: center; margin-bottom: 20px;"></div>
+        <div style="background: #f9f9f9; padding: 15px; border-radius: 6px; border: 1px solid #eee; text-align: left; font-size: 0.9rem; line-height: 1.5; color: #333;">
+          <p style="margin: 4px 0;"><strong>Beneficiario:</strong> Filippo e Lucia</p>
+          <p style="margin: 4px 0;"><strong>IBAN:</strong> <span style="font-family: monospace; background: #eee; padding: 2px 4px; border-radius: 3px;">IT25U0306910910100000061164</span></p>
+          <p style="margin: 4px 0;"><strong>Causale:</strong> Regalo Matrimonio Filippo e Lucia</p>
+        </div>
+        <button class="share-btn" onclick="shareOrder()">📤 Condividi con noi le tue spese</button>
+      </div>
+    `;
+  }
+
+  document.getElementById('summaryContent').innerHTML = `
+    <h3>🎉 Ecco cosa avete scelto</h3>
+    <p class="summary-tagline">${message}</p>
+    ${ids.length > 0 ? `<ul class="summary-list">${rows}</ul>` : ''}
+    ${ids.length > 0 ? `<div class="summary-total" style="margin-bottom: 15px;"><span>Totale</span><span>€${total}</span></div>` : ''}
+    ${paymentHTML}
+  `;
+
+  if (total > 0) {
+    const iban = "IT25U0306910910100000061164";
+    const beneficiario = "Filippo e Lucia";
+    const causale = "Regalo Matrimonio Filippo e Lucia";
+    const importoFormattato = parseFloat(total).toFixed(2);
+    const stringaEPC = `BCD\n002\n1\nSCT\n\n${beneficiario}\n${iban}\nEUR${importoFormattato}\n\n${causale}`;
+    
+    try {
+      new QRCode(document.getElementById("qrcode"), {
+        text: stringaEPC,
+        width: 160,
+        height: 160,
+        colorDark : "#485E4D",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.M
+      });
+    } catch(e) {
+      console.error("Errore generazione QR:", e);
+    }
+  }
+
+  document.getElementById('summaryOverlay').classList.add('open');
+}
+
+function closeSummary(event){
+  if(event && event.target !== event.currentTarget) return;
+  document.getElementById('summaryOverlay').classList.remove('open');
+}
+
+const weddingDate = new Date('2026-09-04T15:30:00+02:00').getTime();
+
+function updateCountdown(){
+  const now = Date.now();
+  const diff = weddingDate - now;
+
+  const daysEl = document.getElementById('cd-days');
+  const hoursEl = document.getElementById('cd-hours');
+  const minutesEl = document.getElementById('cd-minutes');
+  const secondsEl = document.getElementById('cd-seconds');
+  if(!daysEl) return;
+
+  if(diff <= 0){
+    daysEl.textContent = '0';
+    hoursEl.textContent = '0';
+    minutesEl.textContent = '0';
+    secondsEl.textContent = '0';
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+  daysEl.textContent = days;
+  hoursEl.textContent = String(hours).padStart(2, '0');
+  minutesEl.textContent = String(minutes).padStart(2, '0');
+  secondsEl.textContent = String(seconds).padStart(2, '0');
+}
+
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+  const isOpen = navLinks.classList.toggle('open');
+  navToggle.setAttribute('aria-expanded', isOpen);
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// ── Carosello foto ──
+(function(){
+  const track  = document.getElementById('carouselTrack');
+  const dotsEl = document.getElementById('carouselDots');
+  if(!track) return;
+
+  const slides = track.querySelectorAll('.carousel-slide');
+  let current  = 0;
+  let timer;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    d.setAttribute('aria-label', `Foto ${i + 1}`);
+    d.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(d);
+  });
+
+  function goTo(n){
+    current = (n + slides.length) % slides.length;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === current));
+    resetTimer();
+  }
+
+  function resetTimer(){
+    clearInterval(timer);
+    if(slides.length > 1) timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  window.carouselMove = (dir) => goTo(current + dir);
+
+  let startX = 0;
+  track.addEventListener('touchstart', e => startX = e.touches[0].clientX, {passive:true});
+  track.addEventListener('touchend',   e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if(Math.abs(diff) > 40) goTo(current + (diff > 0 ? 1 : -1));
+  }, {passive:true});
+
+  resetTimer();
+})();
+
+function submitRsvp(){
+  const nome      = document.getElementById('rsvpNome').value.trim();
+  const email     = document.getElementById('rsvpEmail').value.trim();
+  const tel       = document.getElementById('rsvpTel').value.trim();
+  const presenza  = document.querySelector('input[name="presenza"]:checked');
+  const allergie  = document.getElementById('rsvpAllergie').value.trim();
+
+  let ok = true;
+  const nomeInput = document.getElementById('rsvpNome');
+  if(!nome){ nomeInput.classList.add('error'); nomeInput.focus(); ok = false; }
+  else { nomeInput.classList.remove('error'); }
+
+  if(!presenza){
+    alert('Indica la tua presenza prima di confermare 🎻');
+    ok = false;
+  }
+  if(!ok) return;
+
+  const accompChecked = [...document.querySelectorAll('input[name="accompagnatori"]:checked')]
+    .map(cb => cb.value);
+  const accompagnatori = accompChecked.length ? accompChecked.join(', ') : '—';
+
+  const payload = {
+    tipo: 'rsvp',
+    nome,
+    email:   email   || '—',
+    tel:     tel     || '—',
+    presenza: presenza.value,
+    accompagnatori,
+    allergie: allergie || '—'
+  };
+
+  const btn = document.querySelector('.rsvp-submit');
+  btn.disabled = true;
+  btn.textContent = 'Invio in corso…';
+
+  fetch(GOOGLE_SCRIPT_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body: JSON.stringify(payload)
+  } )
+  .catch(err => console.error('Errore RSVP:', err))
+  .finally(() => {
+    document.getElementById('rsvpForm').style.display = 'none';
+    document.getElementById('rsvpThankYou').style.display = 'block';
+  });
+}
+</script>
+
+</body>
+</html>.container{width:min(1100px,90%);margin:auto}
 section{padding:90px 0}
 
 .navbar{
