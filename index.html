@@ -863,6 +863,14 @@ function shareOrder(){
   if(!lastOrder) return;
 
   saveOrderToSheet(lastOrder.guestName, lastOrder.ids, lastOrder.total, lastOrder.message);
+  
+  // Mostra messaggio di conferma
+  const shareBtn = document.querySelector('.share-btn');
+  if(shareBtn){
+    shareBtn.textContent = '✓ Grazie, abbiamo ricevuto il tuo contributo!';
+    shareBtn.disabled = true;
+    shareBtn.style.background = 'var(--sage)';
+  }
 
   const shareText = `${lastOrder.message}\n\nScopri di più sul matrimonio di Filippo & Lucia 🎻: ${window.location.href}`;
 
