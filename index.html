@@ -11,14 +11,14 @@
 <meta property="og:title" content="Filippo & Lucia | 4 settembre 2026">
 <meta property="og:description" content="Una storia in musica. Vi aspettiamo il 4 settembre 2026 a Como per festeggiare insieme a noi.">
 <meta property="og:image" content="https://lh3.googleusercontent.com/d/1_mdGTmsFO0-f3uUqESXEPbcFvBRk6UPa">
-<meta property="og:url" content="https://benvenutiallagofl.github.io/FilippoeLucia2026//">
+<meta property="og:url" content="https://benvenutiallagofl.github.io/FilippoeLucia2026.fl/">
 <meta property="og:locale" content="it_IT">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Filippo & Lucia | 4 settembre 2026">
 <meta name="twitter:description" content="Una storia in musica. Vi aspettiamo il 4 settembre 2026 a Como per festeggiare insieme a noi.">
-<meta name="twitter:image" content="hhttps://lh3.googleusercontent.com/d/1_mdGTmsFO0-f3uUqESXEPbcFvBRk6UPa">
+<meta name="twitter:image" content="https://lh3.googleusercontent.com/d/1_mdGTmsFO0-f3uUqESXEPbcFvBRk6UPa">
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
@@ -83,9 +83,12 @@ position:relative}
 .countdown-number{font-family:"Playfair Display",serif;font-size:2.4rem;font-weight:700;color:white;line-height:1}
 .countdown-label{font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:4px}
 
+
 /* ── Easter egg Sirius ── */
 .sirius-link{cursor:pointer;text-decoration:none;color:inherit;border-bottom:1px dashed rgba(255,255,255,.35);transition:.2s}
 .sirius-link:hover{border-bottom-color:var(--gold);color:var(--gold)}
+.sirius-paw{display:inline-block;animation:pawpulse 2s ease-in-out infinite;margin-left:2px}
+@keyframes pawpulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.3);opacity:1}}
 .sirius-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:300;align-items:center;justify-content:center;padding:20px}
 .sirius-overlay.open{display:flex}
 .sirius-modal{background:var(--ivory);border-radius:8px;padding:40px;max-width:380px;width:100%;position:relative;text-align:center}
@@ -302,10 +305,63 @@ section{padding:60px 0}
 .rsvp-thankyou-title{font-family:"Playfair Display",serif;font-size:1.4rem;color:var(--forest);margin-bottom:16px}
 .rsvp-thankyou-text{font-size:.95rem;color:#555;margin-bottom:24px}
 .rsvp-thankyou-firma{font-family:"Playfair Display",serif;font-size:1.05rem;color:var(--gold)}
+/* ── Splash screen / sipario ── */
+.splash{
+  position:fixed;inset:0;z-index:1000;display:flex;
+  align-items:center;justify-content:center;
+  background:#1a2e17;overflow:hidden}
+.splash-curtain-left,.splash-curtain-right{
+  position:absolute;top:0;bottom:0;width:50%;
+  background:var(--forest);
+  transition:transform 1.4s cubic-bezier(.76,0,.24,1);
+  z-index:2}
+.splash-curtain-left{left:0;transform-origin:left}
+.splash-curtain-right{right:0;transform-origin:right}
+.splash-curtain-left::after,.splash-curtain-right::after{
+  content:'';position:absolute;top:0;bottom:0;width:18px;
+  background:linear-gradient(to right,rgba(0,0,0,.18),transparent)}
+.splash-curtain-left::after{right:0}
+.splash-curtain-right::after{left:0;background:linear-gradient(to left,rgba(0,0,0,.18),transparent)}
+.splash.open .splash-curtain-left{transform:translateX(-100%)}
+.splash.open .splash-curtain-right{transform:translateX(100%)}
+.splash-content{
+  position:relative;z-index:3;text-align:center;color:white;
+  opacity:1;transition:opacity .4s}
+.splash.open .splash-content{opacity:0;pointer-events:none}
+.splash-title{
+  font-family:"Playfair Display",serif;font-size:clamp(2rem,6vw,3.5rem);
+  font-weight:700;letter-spacing:3px;color:white;margin-bottom:8px}
+.splash-subtitle{
+  font-size:.8rem;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:48px}
+.splash-btn{
+  background:transparent;border:1px solid rgba(255,255,255,.5);
+  color:white;font-family:"Playfair Display",serif;
+  font-size:.95rem;letter-spacing:3px;text-transform:uppercase;
+  padding:14px 36px;cursor:pointer;transition:.3s;border-radius:2px}
+.splash-btn:hover{background:rgba(255,255,255,.1);border-color:var(--gold);color:var(--gold)}
+.splash.gone{display:none}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
+
+<!-- Splash screen / sipario -->
+<div class="splash" id="splash">
+  <div class="splash-curtain-left"></div>
+  <div class="splash-curtain-right"></div>
+  <div class="splash-content">
+    <p class="splash-title">Filippo & Lucia</p>
+    <p class="splash-subtitle">4 settembre 2026 · Como</p>
+    <button class="splash-btn" onclick="openSipario()">&#9654; Entra</button>
+  </div>
+</div>
+
+<!-- SoundCloud player nascosto -->
+<iframe id="scPlayer" width="1" height="1" scrolling="no" frameborder="no" allow="autoplay"
+  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%253Atracks%253A253182370&auto_play=false&buying=false&liking=false&download=false&sharing=false&show_artwork=false&show_comments=false&show_playcount=false&show_user=false&hide_related=true&visual=false"
+  style="position:fixed;bottom:-10px;left:-10px;opacity:0;pointer-events:none"></iframe>
+<script src="https://w.soundcloud.com/player/api.js"></script>
 
 <nav class="navbar">
   <div class="navbar-inner">
@@ -359,7 +415,7 @@ Siamo felici di invitarvi a condividere con noi questo nuovo capitolo della nost
 
 <section id="storia">
 <div class="container">
-<h2 class="section-title">La Melodia</h2>
+<h2 class="section-title">Libretto d'opera</h2>
 
 <div class="story-block">
 <h3 class="timeline-title">Ouverture — Ferrara</h3>
@@ -457,7 +513,7 @@ Siamo felici di invitarvi a condividere con noi questo nuovo capitolo della nost
 
 <section id="concerto">
 <div class="container">
-<h2 class="section-title">Il Concerto</h2>
+<h2 class="section-title">Programma di sala</h2>
 
 <div class="info-card">
 <h3>Cerimonia</h3>
@@ -484,7 +540,7 @@ Siamo felici di invitarvi a condividere con noi questo nuovo capitolo della nost
 
 <section id="info">
 <div class="container">
-<h2 class="section-title">Informazioni Utili</h2>
+<h2 class="section-title">Informazioni di servizio</h2>
 <div class="location-grid">
 
 <div class="location-card">
@@ -515,8 +571,9 @@ Siamo felici di invitarvi a condividere con noi questo nuovo capitolo della nost
 
 <section id="rsvp">
 <div class="container">
-<h2 class="section-title">Il vostro posto in orchestra</h2>
-<p style="text-align:center;margin-bottom:32px;color:var(--forest);font-size:.95rem">Confermate la vostra presenza entro il <strong>1 Agosto 2026</strong>.</p>
+<h2 class="section-title">Pass VIP</h2>
+<p style="text-align:center;max-width:600px;margin:0 auto 16px;color:var(--forest);font-size:.95rem">Il vostro invito vi garantisce l'accesso esclusivo all'unica data del tour Filippo & Lucia 2026.<br>Per confermare la presenza è sufficiente registrare il proprio posto in orchestra.</p>
+<p style="text-align:center;margin-bottom:40px;color:var(--forest);font-size:.95rem">Confermate il vostro posto in platea entro il <strong>1 agosto 2026</strong>.</p>
 
 <div id="rsvpForm" class="rsvp-form">
 
@@ -579,7 +636,7 @@ Siamo felici di invitarvi a condividere con noi questo nuovo capitolo della nost
 
 <section id="shop">
 <div class="container">
-<h2 class="section-title">Music Shop</h2>
+<h2 class="section-title">Merchandising ufficiale del tour</h2>
 <p style="text-align:center;margin-bottom:30px">Scegli in totale libertà come partecipare: puoi selezionare un singolo elemento, metterne insieme diversi nel carrello, o semplicemente sfogliare queste pagine. Ogni vostra scelta, che sia un piccolo pensiero o anche solo la gioia di esserci, contribuirà al progetto più grande: costruire il nostro futuro insieme.</p>
 
 <div class="shop-tabs" id="shopTabs"></div>
@@ -616,7 +673,7 @@ Siamo felici di invitarvi a condividere con noi questo nuovo capitolo della nost
 la melodia più bella è finalmente quella che chiamiamo casa."
 </p>
 <br>
-<p>Supervisione artistica: <span class="sirius-link" onclick="document.getElementById('siriusOverlay').classList.add('open')">Sirius Lago Benvenuti 🐾</span></p>
+<p>Supervisione artistica: <span class="sirius-link" onclick="document.getElementById('siriusOverlay').classList.add('open')">Sirius Lago Benvenuti</span><span class="sirius-paw" onclick="document.getElementById('siriusOverlay').classList.add('open')" style="cursor:pointer">🐾</span></p>
 </footer>
 
 <div id="siriusOverlay" class="sirius-overlay" onclick="if(event.target===this)this.classList.remove('open')">
@@ -695,6 +752,17 @@ const categories = [
       coccole:    { name: 'Fondo coccole e manutenzione ordinaria',          price: 50,  emoji: '🐈', desc: 'Un investimento ad altissimo rendimento emotivo.' },
       patrimonio: { name: 'Programma di valorizzazione del patrimonio felino', price: 100, emoji: '👑', desc: 'Per mantenere elevati gli standard estetici di Sirius Lago Benvenuti.' },
       trono:      { name: 'Trono ufficiale di Sirius Lago Benvenuti',        price: 180, emoji: '🛋️', desc: 'Perché un gatto siberiano merita una seduta all\'altezza del proprio rango.' }
+    }
+  },
+  {
+    id: 'bricolage',
+    label: 'Laboratorio di bricolage',
+    items: {
+      levigatrice: { name: 'Levigatrice orbitale Bosch',    price: 60,  emoji: '🔧', desc: 'Per levigare ogni superficie, anche le situazioni più complicate.' },
+      seghetto:    { name: 'Seghetto alternativo Bosch',    price: 90,  emoji: '🪚', desc: 'Per tagliare i problemi alla radice, con precisione svizzera.' },
+      sega:        { name: 'Sega circolare Bosch',          price: 150, emoji: '⚙️', desc: 'Perché certi traguardi si raggiungono solo con gli strumenti giusti.' },
+      trapano:     { name: 'Trapano avvitatore Bosch',      price: 120, emoji: '🔩', desc: 'Per fissare per bene le cose che contano.' },
+      set:         { name: 'Set completo officina casalinga', price: 300, emoji: '🧰', desc: 'Per costruire tutto da zero. Letteralmente.' }
     }
   }
 ];
@@ -810,12 +878,16 @@ function buildSummaryMessage(ids, total){
   if(ids.length === 0){
     return "Carrello vuoto... ma la curiosità di guardare non si paga! Tornate quando volete 😉";
   }
-
-  const inCategory = catId => ids.some(id => categories.find(c => c.id === catId).items[id]);
-  const onlyCategory = catId => ids.every(id => categories.find(c => c.id === catId).items[id]);
-
+  const inCategory = catId => ids.some(id => categories.find(c => c.id === catId)?.items[id]);
+  const onlyCategory = catId => ids.every(id => categories.find(c => c.id === catId)?.items[id]);
   if(onlyCategory('felina')){
     return "Sirius Lago Benvenuti ringrazia per l'attenzione esclusiva: la sua direzione artistica approva con la coda dritta. 🐾👑";
+  }
+  if(onlyCategory('accessori')){
+    return "Avete scelto gli strumenti essenziali: colofonia, corde e tutto il necessario per suonare al meglio. Siete già pronti per il palco. 🎻🎵";
+  }
+  if(onlyCategory('bricolage')){
+    return "Avete puntato tutto sul laboratorio: con tutta questa attrezzatura Bosch, la prossima casa se la costruiscono da soli. 🔧🏠";
   }
   if(ids.includes('stradivari') && ids.includes('tournee')){
     return "Stradivari immaginario + tournée mondiale immaginaria: a questo punto manca solo l'agente immaginario. Comunque, grazie di cuore! 🎻🌍";
@@ -823,7 +895,7 @@ function buildSummaryMessage(ids, total){
   if(ids.includes('casa') && total >= 250){
     return "State letteralmente costruendo un pezzo della nostra futura casa. Ci commuoviamo (e iniziamo a pensare ai mobili). 🏠💛";
   }
-  if(inCategory('sopravvivenza') && ids.length === ids.filter(id => categories.find(c => c.id === 'sopravvivenza').items[id]).length){
+  if(onlyCategory('sopravvivenza')){
     return "Avete pensato solo alla nostra sopravvivenza: cena, caffè e benzina. Promettiamo di arrivare vivi al prossimo concerto. ☕🚗🍝";
   }
   if(total >= 300){
@@ -1107,6 +1179,53 @@ function submitRsvp(){
     document.getElementById('rsvpThankYou').style.display = 'block';
   });
 }
+
+// ── Splash screen / sipario ──
+const scWidget = SC.Widget(document.getElementById('scPlayer'));
+let scReady = false;
+scWidget.bind(SC.Widget.Events.READY, () => { scReady = true; });
+
+function openSipario(){
+  const splash = document.getElementById('splash');
+  splash.classList.add('open');
+
+  if(scReady){
+    scWidget.setVolume(0);
+    scWidget.play();
+    // Dissolvenza: porta il volume da 0 a 40 in 3 secondi
+    let vol = 0;
+    const fadeIn = setInterval(() => {
+      vol += 1;
+      scWidget.setVolume(vol);
+      if(vol >= 40) clearInterval(fadeIn);
+    }, 75);
+  }
+
+  setTimeout(() => splash.classList.add('gone'), 1600);
+}
+
+// Pulsante mute fisso in basso a sinistra
+const muteBtn = document.createElement('button');
+muteBtn.innerHTML = '🎵';
+muteBtn.title = 'Attiva/disattiva musica';
+muteBtn.style.cssText = `
+  position:fixed;bottom:20px;left:20px;z-index:200;
+  background:rgba(45,90,39,.85);border:none;border-radius:50%;
+  width:42px;height:42px;font-size:1.1rem;cursor:pointer;
+  box-shadow:0 2px 10px rgba(0,0,0,.2);transition:.2s;display:none`;
+let muted = false;
+muteBtn.addEventListener('click', () => {
+  muted = !muted;
+  scWidget.setVolume(muted ? 0 : 40);
+  muteBtn.innerHTML = muted ? '🔇' : '🎵';
+});
+document.body.appendChild(muteBtn);
+
+setTimeout(() => {
+  muteBtn.style.display = 'flex';
+  muteBtn.style.alignItems = 'center';
+  muteBtn.style.justifyContent = 'center';
+}, 1800);
 </script>
 
 </body>
