@@ -565,6 +565,23 @@ Siamo felici di invitarvi a condividere con noi questo nuovo capitolo della nost
 
 </div>
 </div>
+  <div style="text-align:center;margin-top:40px;padding:0 20px">
+  <h3 style="font-family:'Playfair Display',serif;color:var(--forest);margin-bottom:8px">🅿️ Parcheggio</h3>
+  <p style="color:#555;font-size:.9rem;margin-bottom:16px">Per la cerimonia consigliamo il parcheggio più vicino al Teatro Sociale:</p>
+  <div style="display:inline-block;background:white;border-radius:8px;box-shadow:0 5px 20px rgba(0,0,0,.07);overflow:hidden;max-width:480px;width:100%">
+    <img src="https://lh3.googleusercontent.com/d/1D6Ad8LoNgCkk8EslKKyl2U0LH8OK_KmQ" alt="Autosilo Valduce" style="width:100%;max-height:200px;object-fit:cover;display:block">
+    <div style="padding:16px 20px">
+      <p style="font-weight:700;color:var(--forest);margin-bottom:4px">Autosilo Valduce</p>
+      <p style="font-size:.85rem;color:#777;margin-bottom:12px">Via Lecco 9, Como</p>
+      <a href="https://www.google.com/maps?q=Autosilo+Valduce,+Via+Lecco+9,+Como" target="_blank"
+        style="display:inline-block;padding:8px 20px;background:var(--forest);color:white;border-radius:4px;text-decoration:none;font-size:.85rem;letter-spacing:.5px">
+        Apri in Maps
+      </a>
+    </div>
+  </div>
+</div>
+
+</div>
 </section>
 
 <section id="rsvp">
@@ -635,8 +652,11 @@ Siamo felici di invitarvi a condividere con noi questo nuovo capitolo della nost
 <section id="shop">
 <div class="container">
 <h2 class="section-title">Merchandising ufficiale del tour</h2>
-<p style="text-align:center;margin-bottom:30px">Scegli in totale libertà come partecipare: puoi selezionare un singolo elemento, metterne insieme diversi nel carrello, o semplicemente sfogliare queste pagine. Ogni vostra scelta, che sia un piccolo pensiero o anche solo la gioia di esserci, contribuirà al progetto più grande: costruire il nostro futuro insieme.</p>
-
+<p style="text-align:center;margin-bottom:10px">Questa è la nostra lista nozze — ma l'abbiamo reinterpretata a modo nostro.</p>
+<p style="text-align:center;margin-bottom:10px;font-size:.9rem;color:#666">Invece di un elenco di piatti e asciugamani, trovate qui dentro spartiti immaginari, scorte strategiche di caffè, attrezzatura Bosch e tutto il necessario per il benessere di Sirius.</p>
+<p style="text-align:center;margin-bottom:10px;font-size:.9rem;color:#666">Gli articoli sono inventati, le cifre sono indicative: usatele liberamente per comporre il vostro contributo. Potete scegliere un solo elemento, combinarne più d'uno, o costruire il carrello più fantasioso che vi venga in mente — e poi condividerlo con noi con il tasto apposito.</p>
+<p style="text-align:center;margin-bottom:30px;font-size:.9rem;color:#666">Non è obbligatorio per nessuno. La vostra presenza è già il regalo più bello.</p>
+  
 <div class="shop-tabs" id="shopTabs"></div>
 
 <div class="grid">
@@ -714,8 +734,8 @@ const categories = [
     label: 'Accessori indispensabili',
     items: {
       colofonia: { name: 'Pezzetto di colofonia',            price: 5,   emoji: '🟤', desc: 'Piccolo ma essenziale: senza non si suona una nota.' },
-      matita: { name: 'Matita per annotazioni fondamentali', price: 10, emoji: '🎼', desc: 'Per tutte le idee che non vogliamo dimenticare.' },
-      leggio: { name: 'Leggio da viaggio',                  price: 25, emoji: '🎵', desc: 'Per sostenere i progetti futuri, uno spartito alla volta.' },
+      matita: { name: 'Matita per annotazioni fondamentali', price: 5, emoji: '🎼', desc: 'Per tutte le idee che non vogliamo dimenticare.' },
+      leggio: { name: 'Leggio da viaggio',                  price: 20, emoji: '🎵', desc: 'Per sostenere i progetti futuri, uno spartito alla volta.' },
       corde:  { name: 'Set di corde orchestrali',          price: 55,  emoji: '🎻', desc: 'Per affrontare con la giusta tensione ogni nuova avventura.' },
       custodia: { name: 'Custodia rigida professionale',    price: 90, emoji: '💼', desc: 'Per proteggere tutto ciò che conta, dentro e fuori dall\'orchestra. (ed ovviamente attacare dei nuovi sticker)' }
     }
@@ -737,7 +757,7 @@ const categories = [
       spartiti:    { name: 'Collezione di spartiti rari',          price: 30,  emoji: '📖', desc: 'Per ampliare il repertorio con qualcosa di speciale.' },
       masterclass: { name: 'Masterclass internazionale',          price: 100, emoji: '✈️', desc: 'Per continuare a imparare e scoprire nuovi orizzonti.' },
       stradivari:  { name: 'Restauro dello Stradivari immaginario', price: 150, emoji: '🎻', desc: 'Non possediamo uno Stradivari. Ma non si sa mai.' },
-      casa:        { name: 'Fondo "Finalmente proprietari"',        price: 250, emoji: '🏠', desc: 'Per trasformare una casa in un luogo pieno di musica.' },
+      casa:        { name: 'Fondo "Finalmente proprietari"',        price: 100, emoji: '🏠', desc: 'Per trasformare una casa in un luogo pieno di musica.' },
       tournee:     { name: 'Quota tournée mondiale immaginaria',     price: 500, emoji: '🌍', desc: 'Dal Conservatorio di Ferrara al resto del mondo. Un giorno, forse.' }
     }
   },
@@ -746,9 +766,9 @@ const categories = [
     label: 'Direzione artistica felina',
     items: {
       giocattolo: { name: 'Giocattolo della settimana',                     price: 8,   emoji: '🧶', desc: 'Durerà tre giorni, ma ne vale comunque la pena.' },
-      crocchette: { name: 'Scorta annuale di croccantini premium',          price: 20,  emoji: '🐾', desc: 'Approvati personalmente da Sirius.' },
+      crocchette: { name: 'Scorta annuale di croccantini premium',          price: 25,  emoji: '🐾', desc: 'Approvati personalmente da Sirius.' },
       coccole:    { name: 'Fondo coccole e manutenzione ordinaria',          price: 50,  emoji: '🐈', desc: 'Un investimento ad altissimo rendimento emotivo.' },
-      patrimonio: { name: 'Programma di valorizzazione del patrimonio felino', price: 100, emoji: '👑', desc: 'Per mantenere elevati gli standard estetici di Sirius Lago Benvenuti.' },
+      patrimonio: { name: 'Programma di valorizzazione del patrimonio felino', price: 75, emoji: '👑', desc: 'Per mantenere elevati gli standard estetici di Sirius Lago Benvenuti.' },
       trono:      { name: 'Trono ufficiale di Sirius Lago Benvenuti',        price: 180, emoji: '🛋️', desc: 'Perché un gatto siberiano merita una seduta all\'altezza del proprio rango.' }
     }
   },
@@ -756,11 +776,11 @@ const categories = [
     id: 'bricolage',
     label: 'Laboratorio di bricolage',
     items: {
-      levigatrice: { name: 'Levigatrice orbitale Bosch',    price: 60,  emoji: '🔧', desc: 'Per levigare ogni superficie, anche le situazioni più complicate.' },
-      seghetto:    { name: 'Seghetto alternativo Bosch',    price: 90,  emoji: '🪚', desc: 'Per tagliare i problemi alla radice, con precisione svizzera.' },
-      sega:        { name: 'Sega circolare Bosch',          price: 150, emoji: '⚙️', desc: 'Perché certi traguardi si raggiungono solo con gli strumenti giusti.' },
-      trapano:     { name: 'Trapano avvitatore Bosch',      price: 120, emoji: '🔩', desc: 'Per fissare per bene le cose che contano.' },
-      set:         { name: 'Set completo officina casalinga', price: 300, emoji: '🧰', desc: 'Per costruire tutto da zero. Letteralmente.' }
+     levigatrice: { name: 'Levigatrice orbitale Bosch',    price: 40,  emoji: '🔧', desc: 'Per levigare ogni superficie — pareti, pavimenti e vecchi rancori.' },
+      seghetto:    { name: 'Seghetto alternativo Bosch',    price: 60,  emoji: '🪚', desc: 'Taglia dritto, taglia curvo, taglia qualsiasi cosa Lucia si metta in testa di costruire.' },
+      sega:        { name: 'Sega circolare Bosch',          price: 90,  emoji: '⚙️', desc: 'Per i progetti seri. Quelli che iniziano un sabato mattina e finiscono tre weekend dopo.' },
+      trapano:     { name: 'Trapano avvitatore Bosch',      price: 70,  emoji: '🔩', desc: 'Un quadro storto in casa nostra non durerà più di 24 ore.' },
+      set:         { name: 'Set completo officina casalinga', price: 180, emoji: '🧰', desc: 'Per chi vuole contribuire a tutto in una volta sola. Garanzia: useremo ogni singolo pezzo.' }
     }
   }
 ];
