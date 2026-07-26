@@ -123,7 +123,7 @@ footer{text-align:center;padding:32px;font-size:.8rem;color:#aaa;border-top:1px 
     <a href="index.html" class="navbar-brand">
       <img src="https://lh3.googleusercontent.com/d/1kGL80ZrZ46vF49cCZvURPYlwabUknhUb" alt="Filippo & Lucia">
     </a>
-    <a href="index.html" class="navbar-back">← Torna al sito</a>
+   <a href="index.html?nosplash=1" class="navbar-back">← Torna al sito</a>
   </div>
 </nav>
 
@@ -235,6 +235,7 @@ async function uploadToCloudinary(file){
   fd.append('file', file);
   fd.append('upload_preset', UPLOAD_PRESET);
   fd.append('folder', FOLDER);
+  fd.append('tags', 'matrimonio');
 
   const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
     method: 'POST', body: fd
