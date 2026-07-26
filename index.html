@@ -672,6 +672,10 @@ Siamo felici di invitarvi a condividere con noi questo nuovo capitolo della nost
   <label for="guestName">Il tuo nome</label>
   <input type="text" id="guestName" placeholder="Nome e Cognome">
 </div>
+<div class="guest-name" style="margin-top:14px">
+  <label for="guestMessage">Un messaggio per noi <span style="font-size:.75rem;color:#999;font-weight:400;text-transform:none;letter-spacing:0">(facoltativo)</span></label>
+  <textarea id="guestMessage" placeholder="Una parola, un ricordo, un augurio... o anche solo un emoji 🎶" style="resize:vertical;min-height:72px;width:100%;padding:10px 12px;border:1px solid var(--grey);border-radius:4px;font-family:Lato,sans-serif;font-size:.9rem;background:white;transition:.15s;line-height:1.5" onfocus="this.style.borderColor='var(--sage)'" onblur="this.style.borderColor='var(--grey)'"></textarea>
+</div>
 <button id="confirmBtn" class="confirm-btn" onclick="showSummary()">🎉 Conferma e festeggia</button>
 </div>
 </div>
@@ -928,7 +932,7 @@ function buildSummaryMessage(ids, total){
 
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwwPUexm4dMGi46NHAX-ujr0zRGsPJ5m3Ws7Nl3aSWWy5ZYnLG0f1TQ1KFHQGWqaNbYXw/exec";
 
-function saveOrderToSheet(nome, ids, total, message){
+function saveOrderToSheet(nome, ids, total, message, guestMessage){
   if(ids.length === 0) return;
   if(GOOGLE_SCRIPT_URL.includes('INSERISCI_URL_GOOGLE_SCRIPT')) return;
 
@@ -938,7 +942,7 @@ function saveOrderToSheet(nome, ids, total, message){
     return `${qty}x ${name} (€${qty * price})`;
   }).join(', ');
 
-  const payload = { nome, articoli, totale: total, messaggio: message };
+  const payload = { nome, articoli, totale: total, messaggio: message, nota: guestMessage || '—' };
 
   fetch(GOOGLE_SCRIPT_URL, {
     method: 'POST',
@@ -953,7 +957,7 @@ let lastOrder = null;
 function shareOrder(){
   if(!lastOrder) return;
 
-  saveOrderToSheet(lastOrder.guestName, lastOrder.ids, lastOrder.total, lastOrder.message);
+  saveOrderToSheet(lastOrder.guestName, lastOrder.ids, lastOrder.total, lastOrder.message, lastOrder.guestMessage);
   
   // Mostra messaggio di conferma
   const shareBtn = document.querySelector('.share-btn');
@@ -984,6 +988,7 @@ function showSummary(){
   const ids = Object.keys(cart);
   const guestNameInput = document.getElementById('guestName');
   const guestName = guestNameInput.value.trim();
+  const guestMessage = (document.getElementById('guestMessage').value || '').trim();
 
   if(ids.length > 0 && guestName === ''){
     guestNameInput.focus();
@@ -992,7 +997,7 @@ function showSummary(){
     return;
   }
   guestNameInput.style.borderColor = '';
-
+  
   let total = 0;
   const rows = ids.map(id => {
     const { name, price, emoji } = products[id];
@@ -1023,6 +1028,10 @@ function showSummary(){
     `;
   }
 
+   const guestMessageHTML = guestMessage
+    ? `<div style="margin:16px 0;padding:14px 16px;background:#fdf9f2;border-left:3px solid var(--gold);border-radius:0 4px 4px 0;font-style:italic;color:#555;font-size:.92rem">"${guestMessage}"</div>`
+    : '';
+  
   document.getElementById('summaryContent').innerHTML = `
     <h3>🎉 Ecco cosa avete scelto</h3>
     <p class="summary-tagline">${message}</p>
