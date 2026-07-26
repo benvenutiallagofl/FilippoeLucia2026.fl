@@ -1008,7 +1008,7 @@ function showSummary(){
   }).join('');
 
   const message = buildSummaryMessage(ids, total);
-  lastOrder = { guestName, ids, total, message };
+ lastOrder = { guestName, ids, total, message, guestMessage };
 
   let paymentHTML = '';
   if (total > 0) {
@@ -1032,14 +1032,14 @@ function showSummary(){
     ? `<div style="margin:16px 0;padding:14px 16px;background:#fdf9f2;border-left:3px solid var(--gold);border-radius:0 4px 4px 0;font-style:italic;color:#555;font-size:.92rem">"${guestMessage}"</div>`
     : '';
   
-  document.getElementById('summaryContent').innerHTML = `
-    <h3>🎉 Ecco cosa avete scelto</h3>
-    <p class="summary-tagline">${message}</p>
-    ${ids.length > 0 ? `<ul class="summary-list">${rows}</ul>` : ''}
-    ${ids.length > 0 ? `<div class="summary-total" style="margin-bottom: 15px;"><span>Totale</span><span>€${total}</span></div>` : ''}
-    ${paymentHTML}
-  `;
-
+document.getElementById('summaryContent').innerHTML = `
+  <h3>🎉 Ecco cosa avete scelto</h3>
+  <p class="summary-tagline">${message}</p>
+  ${guestMessageHTML}                            ← aggiungi questa riga
+  ${ids.length > 0 ? `<ul class="summary-list">${rows}</ul>` : ''}
+  ...
+`;
+  
   if (total > 0) {
     const iban = "IT25U0306910910100000061164";
     const beneficiario = "Filippo e Lucia";
