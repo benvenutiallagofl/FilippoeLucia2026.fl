@@ -1035,9 +1035,9 @@ function showSummary(){
 document.getElementById('summaryContent').innerHTML = `
   <h3>🎉 Ecco cosa avete scelto</h3>
   <p class="summary-tagline">${message}</p>
-  ${guestMessageHTML}                            ← aggiungi questa riga
+ ${guestMessageHTML}
   ${ids.length > 0 ? `<ul class="summary-list">${rows}</ul>` : ''}
-  ...
+  ${paymentHTML}
 `;
   
   if (total > 0) {
@@ -1047,8 +1047,10 @@ document.getElementById('summaryContent').innerHTML = `
     const importoFormattato = parseFloat(total).toFixed(2);
     const stringaEPC = `BCD\n002\n1\nSCT\n\n${beneficiario}\n${iban}\nEUR${importoFormattato}\n\n${causale}`;
     
-    try {
-      new QRCode(document.getElementById("qrcode"), {
+   try {
+      const qrEl = document.getElementById("qrcode");
+      qrEl.innerHTML = '';
+      new QRCode(qrEl, {
         text: stringaEPC,
         width: 160,
         height: 160,
@@ -1060,7 +1062,7 @@ document.getElementById('summaryContent').innerHTML = `
       console.error("Errore generazione QR:", e);
     }
   }
-
+  
   document.getElementById('summaryOverlay').classList.add('open');
 }
 
