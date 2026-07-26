@@ -85,7 +85,7 @@ position:relative}
 
 
 /* ── Easter egg Sirius ── */
-.sirius-link{cursor:pointer;text-decoration:none;color:inherit;border-bottom:1px dashed rgba(255,255,255,.35);transition:.2s}
+.sirius-link{cursor:pointer;text-decoration:none;color:inherit;border-bottom:1px dashed var(--sage);transition:.2s}
 .sirius-link:hover{border-bottom-color:var(--gold);color:var(--gold)}
 .sirius-paw{display:inline-block;animation:pawpulse 2s ease-in-out infinite;margin-left:2px}
 @keyframes pawpulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.3);opacity:1}}
@@ -261,10 +261,31 @@ section{padding:60px 0}
 
 #cart{position:static;margin-top:30px}
 
-.shop-item{padding:20px}
+#shopItems{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.shop-item{padding:14px;border-left-width:3px}
+.shop-item h3{font-size:.92rem;line-height:1.3}
+.shop-item .price{font-size:.85rem;margin:3px 0 6px}
+.shop-item .item-desc{font-size:.75rem;margin-bottom:10px;line-height:1.4}
+.shop-item .qty-control{gap:8px}
+.shop-item .qty-control button{width:28px;height:28px;font-size:.95rem}
 
-.shop-tabs{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:6px;-webkit-overflow-scrolling:touch}
-.shop-tab{flex:0 0 auto;white-space:nowrap}
+.shop-tabs-wrap{position:relative;margin-bottom:14px}
+.shop-tabs-wrap::after{
+  content:'';position:absolute;top:0;right:0;bottom:6px;width:36px;
+  background:linear-gradient(to right,rgba(247,243,235,0),var(--ivory));
+  pointer-events:none;transition:opacity .2s}
+.shop-tabs-wrap.at-end::after{opacity:0}
+.shop-tabs{
+  flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;padding-bottom:6px;
+  -webkit-overflow-scrolling:touch;margin-bottom:0;
+  scroll-snap-type:x proximity;scroll-padding-left:4px}
+.shop-tab{flex:0 0 auto;white-space:nowrap;scroll-snap-align:start}
+
+.shop-tabs-dots{display:flex;justify-content:center;gap:6px;margin-bottom:24px}
+.shop-tabs-dots .dot{
+  width:6px;height:6px;border-radius:50%;background:var(--grey);
+  transition:.2s;cursor:pointer}
+.shop-tabs-dots .dot.active{background:var(--forest);width:16px;border-radius:3px}
 
 
 /* Adattamento logo per la versione mobile (rimane a 100px) */
@@ -658,7 +679,10 @@ Siamo felici di invitarvi a condividere con noi questo nuovo capitolo della nost
 <p style="text-align:center;margin-bottom:10px;font-size:.9rem;color:#666">Gli articoli sono inventati, le cifre sono indicative: usatele liberamente per comporre il vostro contributo. Potete scegliere un solo elemento, combinarne più d'uno, o costruire il carrello più fantasioso che vi venga in mente — e poi condividerlo con noi con il tasto apposito.</p>
 <p style="text-align:center;margin-bottom:30px;font-size:.9rem;color:#666">Non è obbligatorio per nessuno. La vostra presenza è già il regalo più bello.</p>
   
-<div class="shop-tabs" id="shopTabs"></div>
+<div class="shop-tabs-wrap" id="shopTabsWrap">
+  <div class="shop-tabs" id="shopTabs"></div>
+</div>
+<div class="shop-tabs-dots" id="shopTabsDots"></div>
 
 <div class="grid">
 <div id="shopItems"></div>
@@ -805,8 +829,13 @@ function renderTabs(){
       ${cat.label}
     </button>
   `).join('');
-}
 
+  const dotsEl = document.getElementById('shopTabsDots');
+  dotsEl.innerHTML = categories.map(cat => `
+    <span class="dot ${cat.id === activeCategory ? 'active' : ''}" onclick="selectCategory('${cat.id}')"></span>
+  `).join('');
+}
+  
 function selectCategory(catId){
   activeCategory = catId;
   renderTabs();
@@ -896,6 +925,31 @@ function renderAll(){
 renderTabs();
 renderShopItems();
 renderAll();
+
+// ── Suggerimento visivo di scorrimento sui tab categoria (mobile) ──
+(function(){
+  const wrap = document.getElementById('shopTabsWrap');
+  const tabs = document.getElementById('shopTabs');
+  if(!wrap || !tabs) return;
+
+  function updateFade(){
+    const atEnd = tabs.scrollLeft + tabs.clientWidth >= tabs.scrollWidth - 4;
+    wrap.classList.toggle('at-end', atEnd);
+  }
+  tabs.addEventListener('scroll', updateFade);
+  window.addEventListener('resize', updateFade);
+  updateFade();
+
+  // Piccolo "nudge" iniziale per far capire che si può scorrere
+  if(window.innerWidth <= 768){
+    setTimeout(() => {
+      if(tabs.scrollWidth > tabs.clientWidth){
+        tabs.scrollTo({ left: 40, behavior: 'smooth' });
+        setTimeout(() => tabs.scrollTo({ left: 0, behavior: 'smooth' }), 500);
+      }
+    }, 900);
+  }
+})();
 
 function buildSummaryMessage(ids, total){
   if(ids.length === 0){
@@ -1219,7 +1273,7 @@ function openSipario(){
   const splash = document.getElementById('splash');
   splash.classList.add('open');
 
-  bgMusic.play().catch(() => {});
+bgMusic.play().catch((err) => console.error('Errore riproduzione musica:', err));
 
   // Dissolvenza: porta il volume da 0 a 0.4 in 8 secondi
   let vol = 0;
