@@ -1203,6 +1203,7 @@ const bgMusic = document.getElementById('bgMusic');
 bgMusic.volume = 0;
 
 function openSipario(){
+  window.scrollTo({top: 0, behavior: 'instant'});
   const splash = document.getElementById('splash');
   splash.classList.add('open');
 
