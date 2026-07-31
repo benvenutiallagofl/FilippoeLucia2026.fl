@@ -834,6 +834,9 @@ function renderTabs(){
   dotsEl.innerHTML = categories.map(cat => `
     <span class="dot ${cat.id === activeCategory ? 'active' : ''}" onclick="selectCategory('${cat.id}')"></span>
   `).join('');
+
+  const activeTab = tabsEl.querySelector('.shop-tab.active');
+  if(activeTab) activeTab.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 }
   
 function selectCategory(catId){
@@ -925,6 +928,38 @@ function renderAll(){
 renderTabs();
 renderShopItems();
 renderAll();
+
+// ── Cambio categoria con swipe sull'area prodotti (mobile) ──
+(function(){
+  const itemsEl = document.getElementById('shopItems');
+  if(!itemsEl) return;
+
+  let startX = 0, startY = 0, tracking = false;
+
+  itemsEl.addEventListener('touchstart', (e) => {
+    if(window.innerWidth > 768) return;
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    tracking = true;
+  }, { passive: true });
+
+  itemsEl.addEventListener('touchend', (e) => {
+    if(!tracking) return;
+    tracking = false;
+    const dx = e.changedTouches[0].clientX - startX;
+    const dy = e.changedTouches[0].clientY - startY;
+
+    // Ignora se lo swipe è più verticale che orizzontale (scroll pagina)
+    if(Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
+
+    const idx = categories.findIndex(c => c.id === activeCategory);
+    if(dx < 0 && idx < categories.length - 1){
+      selectCategory(categories[idx + 1].id);   // swipe a sinistra → categoria successiva
+    } else if(dx > 0 && idx > 0){
+      selectCategory(categories[idx - 1].id);   // swipe a destra → categoria precedente
+    }
+  }, { passive: true });
+})();
 
 // ── Suggerimento visivo di scorrimento sui tab categoria (mobile) ──
 (function(){
