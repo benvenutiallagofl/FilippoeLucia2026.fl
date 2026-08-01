@@ -157,6 +157,12 @@ box-shadow:0 5px 20px rgba(0,0,0,.05);margin-bottom:20px}
 .shop-item .price{color:var(--gold);font-weight:700;margin:4px 0 8px}
 .shop-item .item-desc{color:#666;font-size:.9rem;margin-bottom:16px;flex-grow:1}
 
+#shopItems{transition:opacity .18s ease,transform .18s ease}
+#shopItems.cat-out-left{opacity:0;transform:translateX(-18px)}
+#shopItems.cat-out-right{opacity:0;transform:translateX(18px)}
+#shopItems.cat-in-left{opacity:0;transform:translateX(18px)}
+#shopItems.cat-in-right{opacity:0;transform:translateX(-18px)}
+
 .shop-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:35px}
 .shop-tab{
   padding:10px 20px;border:1px solid var(--sage);background:white;color:var(--forest);
@@ -840,11 +846,29 @@ function renderTabs(){
 }
   
 function selectCategory(catId){
+  if(catId === activeCategory) return;
+
+  const oldIdx = categories.findIndex(c => c.id === activeCategory);
+  const newIdx = categories.findIndex(c => c.id === catId);
+  const direction = newIdx > oldIdx ? 'left' : 'right';
+
   activeCategory = catId;
   renderTabs();
-  renderShopItems();
-}
 
+  const itemsEl = document.getElementById('shopItems');
+  itemsEl.classList.add(direction === 'left' ? 'cat-out-left' : 'cat-out-right');
+
+  setTimeout(() => {
+    renderShopItems();
+    itemsEl.classList.remove('cat-out-left', 'cat-out-right');
+    itemsEl.classList.add(direction === 'left' ? 'cat-in-left' : 'cat-in-right');
+    void itemsEl.offsetWidth; // forza il reflow prima di rimuovere la classe
+    requestAnimationFrame(() => {
+      itemsEl.classList.remove('cat-in-left', 'cat-in-right');
+    });
+  }, 160);
+}
+  
 function renderShopItems(){
   const cat = categories.find(c => c.id === activeCategory);
   const itemsEl = document.getElementById('shopItems');
